@@ -18,6 +18,8 @@ func New(input string) *Lexer {
 	return l
 }
 
+// readChar
+// 读取下一个字符
 func (l *Lexer) readChar() {
 	//此时读取的位置已经超过了代码的长度，说明已经读取完毕
 	if l.readPosition >= len(l.input) {
@@ -30,6 +32,7 @@ func (l *Lexer) readChar() {
 }
 
 // NextToken
+// 读取下一个token
 func (l *Lexer) NextToken() token.Token {
 	var tok token.Token
 

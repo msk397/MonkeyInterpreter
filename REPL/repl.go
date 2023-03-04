@@ -10,6 +10,7 @@ import (
 
 const PROMPT = ">> "
 
+// Start 用于启动REPL(Read-Eval-Print-Loop)读取-解析-输出循环
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
 	for {

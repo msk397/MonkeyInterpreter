@@ -2,6 +2,7 @@ package token
 
 type TokenType string
 
+// 定义所有的语法单元
 const (
 	ILLEGAL = "ILLEGAL" //表示未知的语法单元
 	EOF     = "EOF"     //表示文件的结尾
@@ -44,11 +45,13 @@ const (
 	RETURN   = "RETURN"
 )
 
+// Token 用于表示语法单元
 type Token struct {
 	Type    TokenType // 用于区分不同的语法单元，比如关键字、标识符、运算符等
 	Literal string    // 用于存储语法单元的值，比如关键字的值、标识符的值、运算符的值等
 }
 
+// keywords 用于存储关键字
 var keywords = map[string]TokenType{
 	"fn":     FUNCTION,
 	"let":    LET,
@@ -59,6 +62,7 @@ var keywords = map[string]TokenType{
 	"return": RETURN,
 }
 
+// LookupIdent 用于查找标识符是否是关键字
 func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
 		return tok
